@@ -1,12 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-type Data = {
+type ResponseData = {
   name: string
+}
+
+export type InputData = {
+  nameOfFile: string,
+  file: File
 }
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<ResponseData>
 ) {
   const file: File | null = getFile(req);
   if (file === null) {
