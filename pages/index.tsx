@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       return;
     }
     //@ts-ignore
-    let file: File = (e.target as HTMLInputElement).files[0];
+    let file: File = (event.target as HTMLInputElement).files[0];
     setFile(file);
    }
 
@@ -22,6 +22,7 @@ const Home: NextPage = () => {
     if (event.target === null){
       return;
     }
+        
     //@ts-ignore
     const target : HTMLInputElement = event.target;
     setError('')
