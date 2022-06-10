@@ -29,18 +29,21 @@ const Home: NextPage = () => {
     setMessage('');
     // send data
 
-    // let data = new FormData();
-    // data.append('file', file);
-    // data.append('name', file.name);
-    // fetch('http://localhost:8080/api/files', {
-    // method: 'POST',
-    // body: data
-    // }).then(response => {
-    // setError('')
-    // setMessage('Sucessfully uploaded file');
-    // }).catch(err => {
-    // setError(err);
-    // });
+    if(file===null){
+      return;
+    }
+
+    let data = new FormData();
+    data.append('file', file);
+    fetch('http://localhost:8080/api/files', {
+    method: 'POST',
+    body: data
+    }).then(response => {
+    setError('')
+    setMessage('Sucessfully uploaded file');
+    }).catch(err => {
+    setError(err);
+    });
    }
 
   return (

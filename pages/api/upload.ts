@@ -4,21 +4,23 @@ type ResponseData = {
   name: string
 }
 
-export type InputData = {
-  nameOfFile: string,
-  file: File
-}
-
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  const file: File | null = getFile(req);
-  if (file === null) {
-    res.status(400).json({ name: "No file provided!" });  
-    return;
-  }
-  uploadFile(file);
+  // if(typeof req.body.file === File){
+
+  // }
+  console.log(req.body.file);
+  console.log(typeof req.body.file);
+  
+
+  // const file: File | null = getFile(req);
+  // if (file === null) {
+  //   res.status(400).json({ name: "No file provided!" });  
+  //   return;
+  // }
+  // uploadFile(file);
   res.status(200).json({ name: "File successfully stored" });
 }
 
